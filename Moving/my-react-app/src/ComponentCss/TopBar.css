@@ -19,7 +19,26 @@
     height: 50px; /* Maintain aspect ratio */
     object-fit: contain; /* Ensures the image fits without distortion */
 }
-  
+ 
+.homepage-button {
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+    outline: none; /* Remove outline */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+}
+
+.homepage-button:focus {
+    outline: none; /* Ensure outline is removed on focus */
+}
+
+/* Optional: Add styles for hover effect if desired */
+.homepage-button:hover {
+    opacity: 0.8; /* Slightly change opacity on hover for visual feedback */
+}
+
+
+
 /* Style the user icon */
 .user-icon {
     width: 40px; /* Fixed size for the user icon */

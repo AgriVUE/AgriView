@@ -1,32 +1,41 @@
-// App.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import logo from './Images/AgriViewLogo.png';
-import userIcon from './Images/user.png';
-import TopBar from './Components/TopBar';
-import HomePage from './HomePage';
-import Mapping from './Mapping'; // Import the Mapping page
+import logo from './Images/AgriViewLogo.png'; // Logo path
+import userIcon from './Images/user.png'; // User icon path
+import TopBar from './Components/TopBar'; // Updated path
+import HomePage from './Pages/HomePage'; // Updated path
+import MappingPage from './Pages/Mapping'; // Ensure this is the correct import for your Mapping page
+import GroupsPage from './Pages/Groups'; // Ensure this is the correct import for your Groups page
+import SupportPage from './Pages/Support'; // Ensure you have a Support component
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('HomePage');
+  const [currentPage, setCurrentPage] = useState('HomePage'); // State for current page
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // Handle any loading states or transitions here if needed
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const renderPage = () => {
     switch (currentPage) {
       case 'HomePage':
-        return <HomePage setCurrentPage={setCurrentPage} />;
+        return <HomePage setCurrentPage={setCurrentPage} />; // Pass setCurrentPage to HomePage
       case 'Mapping':
-        return <Mapping />;
+        return <MappingPage setCurrentPage={setCurrentPage} />; // Pass setCurrentPage to MappingPage
       case 'Groups':
-        return <div>Groups Page</div>; // Add Groups page later
-      // Add more cases for other pages here
+        return <GroupsPage setCurrentPage={setCurrentPage} />; // Pass setCurrentPage to GroupsPage
+      case 'Support':
+        return <SupportPage setCurrentPage={setCurrentPage} />; // Pass setCurrentPage to SupportPage
       default:
         return <div>Page not found.</div>;
     }
   };
 
   return (
-    <div className="App">
-      <TopBar logo={logo} userIcon={userIcon} />
+    <div className={`App`}>
+      <TopBar setCurrentPage={setCurrentPage} /> {/* Pass the function here */}
       <div className="background-image" />
       {renderPage()}
     </div>

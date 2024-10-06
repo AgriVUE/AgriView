@@ -1,15 +1,14 @@
-// TopBar.js
-import logo from '../Images/AgriViewLogo.png'; // Update with the logo path
-import userIcon from '../Images/user.png'; // User icon path
 import React from 'react';
 import '../ComponentCss/TopBar.css'; // Assuming there's a CSS file for styles
+import logo from '../Images/AgriViewLogo.png'; // Update with the logo path
+import userIcon from '../Images/user.png'; // User icon path
 
-const TopBar = ({ setCurrentPage, userIcon }) => {
+const TopBar = ({ setCurrentPage }) => {
   return (
     <div className="top-bar">
       <button 
-        className="logo-button" 
-        onClick={() => setCurrentPage('HomePage')} // Set state to HomePage when clicked
+        onClick={() => setCurrentPage('HomePage')} 
+        className="homepage-button" // Specific class for the homepage button
       >
         <img src={logo} alt="AgriView Logo" className="logo" />
       </button>
