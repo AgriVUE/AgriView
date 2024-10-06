@@ -1,5 +1,5 @@
 import React from 'react';
-import './Container.css'; // Create a separate CSS file for Container styles if needed
+import '../ComponentCss/Container.css'; // Create a separate CSS file for Container styles if needed
 
 const Container = ({ height, content }) => {
   return (

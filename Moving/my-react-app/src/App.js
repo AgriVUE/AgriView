@@ -1,34 +1,31 @@
-import React, { useEffect, useState } from 'react';
+// App.js
+import React, { useState } from 'react';
 import './App.css';
-import logo from './AgriViewLogo.png'; // Logo path
-import userIcon from './user.png'; // User icon path
-import TopBar from './TopBar'; // Import the TopBar component
-import HomePage from './HomePage'; // Import the HomePage component
-import Groups from './Groups'; // Import the Groups component
+import logo from './Images/AgriViewLogo.png';
+import userIcon from './Images/user.png';
+import TopBar from './Components/TopBar';
+import HomePage from './HomePage';
+import Mapping from './Mapping'; // Import the Mapping page
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('HomePage'); // State for current page
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      // Handle any loading states or transitions here if needed
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
+  const [currentPage, setCurrentPage] = useState('HomePage');
 
   const renderPage = () => {
     switch (currentPage) {
       case 'HomePage':
-        return <HomePage />;
-      case 'Groups': // Add case for Groups page
-        return <Groups />;
+        return <HomePage setCurrentPage={setCurrentPage} />;
+      case 'Mapping':
+        return <Mapping />;
+      case 'Groups':
+        return <div>Groups Page</div>; // Add Groups page later
+      // Add more cases for other pages here
       default:
         return <div>Page not found.</div>;
     }
   };
 
   return (
-    <div className={`App`}>
+    <div className="App">
       <TopBar logo={logo} userIcon={userIcon} />
       <div className="background-image" />
       {renderPage()}

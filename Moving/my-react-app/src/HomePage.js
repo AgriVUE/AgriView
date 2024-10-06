@@ -1,21 +1,15 @@
 import React from 'react';
-import Container from './Container'; // Import the Container component
+import Container from './Components/Container';
+import PageChangeButton from './Components/PageChangeButton';
 
 const HomePage = () => {
   return (
     <div className="content">
       <Container height={300} content={[
         <h2 key="1">Container 1</h2>,
-        <p key="2">This is some text inside the first container.</p>
+        <PageChangeButton key="2" text="Go to Mapping Page" />
       ]} />
-      <Container height={400} content={[
-        <h2 key="1">Container 2</h2>,
-        <p key="2">This is some text inside the second container.</p>
-      ]} />
-      <Container height={250} content={[
-        <h2 key="1">Container 3</h2>,
-        <p key="2">This is some text inside the third container.</p>
-      ]} />
+      {/* Add more containers/buttons here */}
     </div>
   );
 };
