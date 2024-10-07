@@ -4,6 +4,7 @@ import TopBar from './Components/TopBar'; // Correct path for your TopBar compon
 import HomePage from './Pages/HomePage'; // Correct path for your HomePage component
 import MappingPage from './Pages/Mapping'; // Correct path for your Mapping component
 import GroupsPage from './Pages/Groups'; // Correct path for your Groups component
+import SupportPage from './Pages/Support';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('HomePage'); // State for current page
@@ -16,6 +17,8 @@ const App = () => {
         return <MappingPage />;
       case 'Groups':
         return <GroupsPage />;
+      case 'Support':
+        return <SupportPage />;
       default:
         return <div>Page not found.</div>;
     }
