@@ -12,5 +12,5 @@
 
 /* Increased margin-bottom for more space between containers */
 .content > .container {
-    margin-bottom: 200px; /* Adjust this value to increase space between containers */
+    margin-bottom: 50px; /* Adjust this value to increase space between containers */
 }
