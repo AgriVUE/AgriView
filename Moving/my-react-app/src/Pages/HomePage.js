@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Container from '../Components/Container'; // Correct import path
 import PageChangeButton from '../Components/PageChangeButton'; // Correct import path
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import GMail from '../Images/email.png';
+import GitHub from '../Images/github.png';
+import LinkedIn from '../Images/linkedin.png';
 
 const HomePage = ({ setCurrentPage }) => {
   const [activeProfile, setActiveProfile] = useState(null);
@@ -150,16 +150,16 @@ const HomePage = ({ setCurrentPage }) => {
               <h3 style={{ margin: '6px 0', fontSize: '1.1rem' }}>{profile.name}</h3>
               <p style={{ color: '#555', marginBottom: '6px', fontSize: '0.85rem' }}>{profile.role}</p>
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '6px' }}>
-                <a href={`mailto:${profile.email}`} style={{ marginRight: '8px', color: '#333' }}>
-                  <FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '20px' }} />
-                </a>
-                <a href={profile.linkedin} style={{ marginRight: '8px', color: '#333' }}>
-                  <FontAwesomeIcon icon={faLinkedin} style={{ fontSize: '20px' }} />
-                </a>
-                <a href={profile.github} style={{ color: '#333' }}>
-                  <FontAwesomeIcon icon={faGithub} style={{ fontSize: '20px' }} />
-                </a>
-              </div>
+    <a href={`mailto:${profile.email}`} style={{ marginRight: '8px', color: '#333' }}>
+        <img src={GMail} alt="Email" style={{ width: '20px', height: '20px' }} />
+    </a>
+    <a href={profile.linkedin} style={{ marginRight: '8px', color: '#333' }}>
+        <img src={LinkedIn} alt="LinkedIn" style={{ width: '20px', height: '20px' }} />
+    </a>
+    <a href={profile.github} style={{ color: '#333' }}>
+        <img src={GitHub} alt="GitHub" style={{ width: '20px', height: '20px' }} />
+    </a>
+</div>
               {activeProfile === profile.id && 
                 <div style={{ 
                   position: 'absolute', 
