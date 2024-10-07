@@ -9,6 +9,13 @@ import FloodingImage from '../Images/Flooding.svg';
 import PrecipitationImage from '../Images/Precipitation.svg';
 import SoilMoistureImage from '../Images/Soil Moisture.svg';
 
+// Import new legend images
+import DamsLegend from '../Images/DamsLegend.svg';
+import DroughtLegend from '../Images/DroughtLegend.svg';
+import FloodingLegend from '../Images/FloodingLegend.svg';
+import PrecipatationLegend from '../Images/PrecipatationLegend.svg'; // Updated path
+import SoilMoistureLegend from '../Images/Soil MoistureLegend.svg'; // Updated path
+
 const MappingPage = () => {
     const [view, setView] = useState('map'); // State to track the current view
     const [selectedImageIndex, setSelectedImageIndex] = useState(0); // State for selected image index
@@ -20,6 +27,15 @@ const MappingPage = () => {
         FloodingImage,
         PrecipitationImage,
         SoilMoistureImage,
+    ];
+
+    // Array of new legend images
+    const legendImages = [
+        DamsLegend,
+        DroughtLegend,
+        FloodingLegend,
+        PrecipatationLegend, // Updated path
+        SoilMoistureLegend, // Updated path
     ];
 
     // Array of insight names
@@ -49,23 +65,14 @@ const MappingPage = () => {
 
     return (
         <div className="content">
-            <Container content={[
+            <Container height={300} content={[
                 <h2 key="1">Mapping Data</h2>,
-                <div 
-                    className="map-container" 
-                    key="2" 
-                    style={{ 
-                        width: '100%', 
-                        maxWidth: '1200px', // Set max width for large screens
-                        margin: '0 auto', // Center horizontally
-                        backgroundColor: 'white', 
-                    }}
-                >
+                <div className="map-container" key="2" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     {view === 'map' ? (
                         <iframe
                             title="Google Maps"
                             width="100%"
-                            height="600px" // Set height for the map
+                            height="600"
                             frameBorder="0"
                             scrolling="no"
                             marginHeight="0"
@@ -75,17 +82,18 @@ const MappingPage = () => {
                             <a href="https://www.gps.ie/">gps vehicle tracker</a>
                         </iframe>
                     ) : (
-                        <img 
-                            src={presetImages[selectedImageIndex]} 
-                            alt={insightNames[selectedImageIndex]} 
-                            style={{ 
-                                width: '100%', 
-                                maxWidth: '1200px', // Ensure it doesn’t exceed container width
-                                height: 'auto', // Maintain aspect ratio
-                                display: 'block',
-                                margin: '0 auto', // Center horizontally
-                            }} 
-                        />
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                            <img 
+                                src={presetImages[selectedImageIndex]} 
+                                alt={insightNames[selectedImageIndex]} 
+                                style={{ width: '70%', height: 'auto', objectFit: 'cover', marginRight: '0' }} // No margin to make it closer
+                            />
+                            <img 
+                                src={legendImages[selectedImageIndex]} 
+                                alt={`Legend for ${insightNames[selectedImageIndex]}`} 
+                                style={{ width: '60%', height: 'auto', objectFit: 'contain', marginLeft: '-150px' }} // Increased negative margin to pull the legend closer
+                            />
+                        </div>
                     )}
                 </div>,
                 <div key="3" style={{ marginTop: '20px', textAlign: 'center' }}>
@@ -96,7 +104,7 @@ const MappingPage = () => {
                         className="dropdown"
                     >
                         <option value="map">Google Map</option>
-                        <option value="image">Data Insights</option>
+                        <option value="image">Data Insights</option> {/* Updated label */}
                     </select>
 
                     {view === 'image' && (
@@ -107,9 +115,9 @@ const MappingPage = () => {
                             className="dropdown"
                             style={{ marginTop: '10px' }} // Additional margin for spacing
                         >
-                            {insightNames.map((name, index) => ( 
+                            {insightNames.map((name, index) => ( // Use insight names
                                 <option key={index} value={index}>
-                                    {name} 
+                                    {name} {/* Update to use names */}
                                 </option>
                             ))}
                         </select>
