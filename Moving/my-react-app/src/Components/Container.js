@@ -1,11 +1,11 @@
 import React from 'react';
-import '../ComponentCss/Container.css'; // Create a separate CSS file for Container styles if needed
+import '../ComponentCss/Container.css'; // Ensure the correct path
 
-const Container = ({ height, content }) => {
+const Container = ({ content }) => {
   return (
-    <div className="container" style={{ height: `${height}px`, opacity: 1 }}>
+    <div className="container">
       {content.map((item, index) => (
-        <div key={index}>{item}</div> // Render each item in the content array
+        <div key={index}>{item} {/* Render each item in the content array */}</div>
       ))}
     </div>
   );

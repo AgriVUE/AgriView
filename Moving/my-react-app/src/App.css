@@ -13,15 +13,15 @@
 
 /* Background image */
 .background-image {
-  position: fixed; /* Fixes the image in the background */
+  position: fixed; /* Fixed background */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('./Images/FarmingPic.jpg'); /* Use the background image */
-  background-size: cover; /* Cover the entire background */
-  background-position: center; /* Center the image */
-  z-index: 0; /* Send it to the back */
+  background-image: url('./Images/FarmingPic.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0; /* Ensure this is lower than other content */
 }
 
 /* Content area */
